@@ -29,7 +29,7 @@
   "id": "homm3rpg",
   "url": "https://github.com/MasterGnak/homm-FoundryVTT/",
   "license": "LICENSE.txt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest": "https://raw.githubusercontent.com/MasterGnak/homm-FoundryVTT/master/system.json",
-  "download": "https://github.com/MasterGnak/homm-FoundryVTT/archive/1.0.0.zip"
+  "download": "https://github.com/MasterGnak/homm-FoundryVTT/archive/1.0.1.zip"
 }
