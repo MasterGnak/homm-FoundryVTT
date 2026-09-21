@@ -14,8 +14,6 @@
       "path": "lang/en.json"
     }
   ],
-  "license": "LICENSE.txt",
-  "version": "0.1.0",
   "compatibility": {
     "minimum": "12",
     "verified": "12"
@@ -28,5 +26,10 @@
   ],
   "relationships": [],
   "socket": false,
-  "id": "homm3rpg"
+  "id": "homm3rpg",
+  "url": "https://github.com/MasterGnak/homm-FoundryVTT/",
+  "license": "LICENSE.txt",
+  "version": "1.0.0",
+  "manifest": "https://raw.githubusercontent.com/MasterGnak/homm-FoundryVTT/master/system.json",
+  "download": "https://github.com/MasterGnak/homm-FoundryVTT/archive/1.0.0.zip"
 }
