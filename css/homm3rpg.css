@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap');
+
+:root {
+    --homm-brown: #6b2d17;
+    --homm-brown-light: #8a3d20;
+    --homm-parchment: #f7efe2;
+    --homm-ink: #3a2418;
+}
+
+.homm3rpg {
+    background: var(--homm-parchment);
+    color: var(--homm-ink);
+    font-family: 'IM Fell English', serif;
+}
+
+/* layout */
+.grid,
+.grid-2col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 8px 0; }
+.grid-3col { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 8px 0; }
+.grid-4col { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 8px 0; }
+.grid-5col { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin: 8px 0; }
+
+.sheet-columns { display: flex; gap: 16px; margin: 8px 0; }
+.sheet-columns .column-left { flex: 1 1 55%; }
+.sheet-columns .column-right { flex: 1 1 45%; display: flex; flex-direction: column; }
+.sheet-columns .column-right prose-mirror { flex: 1; min-height: 220px; }
+
+.section-title {
+    text-align: center;
+    color: var(--homm-brown);
+    border-bottom: 2px solid var(--homm-brown);
+    margin: 10px 0 4px;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+}
+
+.sheet-header { display: flex; gap: 12px; align-items: flex-start; border-bottom: 2px solid var(--homm-brown); padding-bottom: 6px; }
+.profile-img { border: 2px solid var(--homm-brown); border-radius: 4px; background: #fff; }
+.header-fields { flex: 1; }
+
+.resource label.resource-label {
+    display: block;
+    color: var(--homm-brown);
+    font-variant: small-caps;
+    font-size: 13px;
+}
+
+input[type="text"], input[type="number"] {
+    background: #fff;
+    border: 1px solid var(--homm-brown-light);
+    border-radius: 3px;
+    color: var(--homm-ink);
+    padding: 2px 4px;
+}
+
+.stat-orb { text-align: center; }
+.stat-orb input[type="number"] { width: 60px; text-align: center; }
+
+.skill-row { display: flex; align-items: center; justify-content: space-between; padding: 2px 6px; }
+.skill-row input[type="number"] { width: 54px; text-align: center; }
+
+.rollable:hover, .rollable:focus {
+    color: #000;
+    text-shadow: 0 0 8px var(--homm-brown);
+    cursor: pointer;
+}
+
+/* items list */
+.items-list { list-style: none; margin: 6px 0; padding: 0; }
+.items-list .item { padding: 3px 6px; border-bottom: 1px dotted var(--homm-brown-light); }
+.items-list .item-header { font-weight: bold; color: var(--homm-brown); }
+.item-controls { white-space: nowrap; }
+.item-info { font-size: 12px; color: var(--homm-brown-light); }
+
+/* spellbook */
+.spellbook-table { width: 100%; border-collapse: collapse; }
+.spellbook-table th { color: var(--homm-brown); border-bottom: 2px solid var(--homm-brown); text-align: left; padding: 3px 6px; font-variant: small-caps; }
+.spellbook-table td { padding: 3px 6px; border-bottom: 1px dotted var(--homm-brown-light); }
+
+.vitals input[type="number"] { text-align: center; }
+
+.sheet-tabs { border-bottom: 2px solid var(--homm-brown); }
+.sheet-tabs a.item { color: var(--homm-brown); font-variant: small-caps; }
+.sheet-tabs a.item.active { text-shadow: 0 0 6px var(--homm-brown); font-weight: bold; }
+.sheet-body { padding-top: 8px; min-height: 180px; }

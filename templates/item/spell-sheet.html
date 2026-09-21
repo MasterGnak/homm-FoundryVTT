@@ -1,0 +1,37 @@
+<form class="{{ cssClass }}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{ item.img }}" data-edit="img" title="{{ item.name }}"/>
+        <div class="header-fields">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{ item.name }}" placeholder="{{ localize 'HOMM.spell.name' }}"/>
+            </h1>
+            <div class="grid grid-4col">
+                <div class="resource flex-group-center">
+                    <label class="resource-label">{{ localize 'HOMM.spell.school' }}</label>
+                    <input name="system.school" type="text" value="{{ system.school }}" data-dtype="String"/>
+                </div>
+                <div class="resource flex-group-center">
+                    <label class="resource-label">{{ localize 'HOMM.spell.level' }}</label>
+                    <input type="number" min="1" max="5" name="system.level" value="{{ system.level }}" data-dtype="Number"/>
+                </div>
+                <div class="resource flex-group-center">
+                    <label class="resource-label">{{ localize 'HOMM.spell.cost' }}</label>
+                    <input type="number" name="system.cost" value="{{ system.cost }}" data-dtype="Number"/>
+                </div>
+                <div class="resource flex-group-center">
+                    <label class="resource-label">{{ localize 'HOMM.spell.range' }}</label>
+                    <input name="system.range" type="text" value="{{ system.range }}" data-dtype="String"/>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="resource">
+        <label class="resource-label">{{ localize 'HOMM.spell.effects' }}</label>
+        <input name="system.effects" type="text" value="{{ system.effects }}" data-dtype="String"/>
+    </div>
+
+    <prose-mirror name="system.description" value="{{ system.description }}" toggled
+                  {{#unless editable}}disabled{{/unless}}>{{{ enrichedDescription }}}
+    </prose-mirror>
+</form>

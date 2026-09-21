@@ -1,0 +1,67 @@
+<form class="{{ cssClass }} flexcol" autocomplete="off">
+
+    <header class="sheet-header">
+        <img class="profile-img" src="{{ actor.img }}" data-edit="img" title="{{ actor.name }}"
+             height="100" width="100"/>
+        <div class="header-fields grid grid-3col">
+            <div class="resource">
+                <label class="resource-label">{{ localize 'HOMM.name' }}</label>
+                <input name="name" type="text" value="{{ actor.name }}" data-dtype="String"/>
+            </div>
+            <div class="resource">
+                <label class="resource-label">{{ localize 'HOMM.alignment' }}</label>
+                <input name="system.alignment" type="text" value="{{ system.alignment }}" data-dtype="String"/>
+            </div>
+            <div class="resource">
+                <label class="resource-label">{{ localize 'HOMM.combatValue' }}</label>
+                <input type="number" name="system.combatValue" value="{{ system.combatValue }}" data-dtype="Number"/>
+            </div>
+        </div>
+    </header>
+
+    <div class="grid grid-6col">
+        <div class="resource">
+            <label class="resource-label">{{ localize 'HOMM.range' }}</label>
+            <input type="number" name="system.range" value="{{ system.range }}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+            <label class="resource-label">{{ localize 'HOMM.attack' }}</label>
+            <input type="number" name="system.attack" value="{{ system.attack }}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+            <label class="resource-label">{{ localize 'HOMM.attackSt' }}</label>
+            <input type="number" name="system.attackSt" value="{{ system.attackSt }}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+            <label class="resource-label">{{ localize 'HOMM.defense' }}</label>
+            <input type="number" name="system.defense" value="{{ system.defense }}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+            <label class="resource-label">{{ localize 'HOMM.defenseSt' }}</label>
+            <input type="number" name="system.defenseSt" value="{{ system.defenseSt }}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+            <label class="resource-label">{{ localize 'HOMM.vitality' }}</label>
+            <input type="number" name="system.vitality.value" value="{{ system.vitality.value }}" data-dtype="Number"/>
+        </div>
+    </div>
+        <div class="resource">
+            <label class="resource-label">{{ localize 'HOMM.gear' }}</label>
+            <input name="system.gear" type="text" value="{{ system.gear }}" data-dtype="String"/>
+        </div>
+        <div class="resource">
+            <label class="resource-label">{{ localize 'HOMM.casualties' }}</label>
+            <input type="number" name="system.casualties" value="{{ system.casualties }}" data-dtype="Number"/>
+        </div>
+    </div>
+
+    <div class="resource">
+        <label class="resource-label">{{ localize 'HOMM.qualities' }}</label>
+        <input name="system.qualities" type="text" value="{{ system.qualities }}" data-dtype="String"/>
+    </div>
+
+    <div class="resource">
+        <label class="resource-label">{{ localize 'HOMM.specialAbilities' }}</label>
+        <input name="system.specialAbilities" type="text" value="{{ system.specialAbilities }}" data-dtype="String"/>
+    </div>
+</form>

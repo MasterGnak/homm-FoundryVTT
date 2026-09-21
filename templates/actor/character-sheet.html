@@ -1,0 +1,236 @@
+<form class="{{ cssClass }} flexcol" autocomplete="off">
+
+    {{!-- Header --}}
+    <header class="sheet-header">
+        <img class="profile-img" src="{{ actor.img }}" data-edit="img" title="{{ actor.name }}"
+             height="100" width="100"/>
+        <div class="header-fields grid grid-4col">
+            <div class="resource">
+                <label class="resource-label">{{ localize 'HOMM.name' }}</label>
+                <input name="name" type="text" value="{{ actor.name }}" data-dtype="String"/>
+            </div>
+            <div class="resource">
+                <label class="resource-label">{{ localize 'HOMM.characterClass' }}</label>
+                <input name="system.characterClass" type="text" value="{{ system.characterClass }}" data-dtype="String"/>
+            </div>
+            <div class="resource">
+                <label class="resource-label">{{ localize 'HOMM.origin' }}</label>
+                <input name="system.origin" type="text" value="{{ system.origin }}" data-dtype="String"/>
+            </div>
+            <div class="resource">
+                <label class="resource-label">{{ localize 'HOMM.lineage' }}</label>
+                <input name="system.lineage" type="text" value="{{ system.lineage }}" data-dtype="String"/>
+            </div>
+            <div class="resource">
+                <label class="resource-label">{{ localize 'HOMM.alignment' }}</label>
+                <input name="system.alignment" type="text" value="{{ system.alignment }}" data-dtype="String"/>
+            </div>
+            <div class="resource">
+                <label class="resource-label">{{ localize 'HOMM.motivation' }}</label>
+                <input name="system.motivation" type="text" value="{{ system.motivation }}" data-dtype="String"/>
+            </div>
+            <div class="resource">
+                <label class="resource-label">{{ localize 'HOMM.level' }}</label>
+                <input type="number" name="system.level" value="{{ system.level }}" data-dtype="Number"/>
+            </div>
+        </div>
+    </header>
+
+    {{!-- Vitals --}}
+    <div class="grid grid-5col vitals">
+        <div class="resource">
+            <label class="resource-label">{{ localize 'HOMM.vitality' }}</label>
+            <input type="number" name="system.vitality.value" value="{{ system.vitality.value }}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+            <label class="resource-label">{{ localize 'HOMM.injuries' }}</label>
+            <input type="number" name="system.injuries" value="{{ system.injuries }}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+            <label class="resource-label">{{ localize 'HOMM.range' }}</label>
+            <input type="number" name="system.range" value="{{ system.range }}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+            <label class="resource-label">{{ localize 'HOMM.exp' }}</label>
+            <input type="number" name="system.exp" value="{{ system.exp }}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+            <label class="resource-label">{{ localize 'HOMM.spellPoints' }}</label>
+            <input type="number" name="system.spellPoints" value="{{ system.spellPoints }}" data-dtype="Number"/>
+        </div>
+    </div>
+
+    {{!-- Attributes / Traits / Skills + Talents side by side --}}
+    <div class="sheet-columns">
+        <div class="column-left">
+            <h3 class="section-title">{{ localize 'HOMM.attributes' }}</h3>
+            <div class="grid grid-4col stat-grid">
+                {{#each system.attributes as |attr key|}}
+                <div class="stat-orb">
+                    <label class="resource-label rollable"
+                           data-roll="1d20+{{ attr.value }}"
+                           data-label="{{ localize 'HOMM.rollAttr' key=(localize (concat 'HOMM.attr.' (toLowerCase key))) }}">
+                        {{ localize (concat 'HOMM.attr.' (toLowerCase key)) }}</label>
+                    <input type="number" name="system.attributes.{{ key }}.value" value="{{ attr.value }}" data-dtype="Number"/>
+                </div>
+                {{/each}}
+            </div>
+
+            <h3 class="section-title">{{ localize 'HOMM.traits' }}</h3>
+            <div class="grid grid-4col stat-grid">
+                {{#each system.traits as |trait key|}}
+                <div class="stat-orb">
+                    <label class="resource-label rollable"
+                           data-roll="1d20+{{ trait.value }}"
+                           data-label="{{ localize 'HOMM.rollTrait' key=(localize (concat 'HOMM.trait.' (toLowerCase key))) }}">
+                        {{ localize (concat 'HOMM.trait.' (toLowerCase key)) }}</label>
+                    <input type="number" name="system.traits.{{ key }}.value" value="{{ trait.value }}" data-dtype="Number"/>
+                </div>
+                {{/each}}
+            </div>
+
+            <h3 class="section-title">{{ localize 'HOMM.skills' }}</h3>
+            <div class="grid grid-2col skill-grid">
+                {{#each system.skills as |skill key|}}
+                <div class="skill-row">
+                    <label class="resource-label">{{ localize (concat 'HOMM.skill.' (toLowerCase key)) }}</label>
+                    <input type="number" min="0" max="10" name="system.skills.{{ key }}" value="{{ skill }}" data-dtype="Number"/>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="column-right">
+            <h3 class="section-title">{{ localize 'HOMM.talents' }}</h3>
+            <prose-mirror name="system.talents" value="{{ system.talents }}" toggled
+                          {{#unless editable}}disabled{{/unless}}>{{{ enrichedTalents }}}
+            </prose-mirror>
+        </div>
+    </div>
+
+    {{!-- Tabs --}}
+    <div class="sheet-tabs-container">
+        <nav class="sheet-tabs tabs" data-group="primary">
+            <a class="item" data-tab="equipment">{{ localize 'HOMM.equipment' }}</a>
+            <a class="item" data-tab="resources">{{ localize 'HOMM.resources' }}</a>
+            <a class="item" data-tab="spellbook">{{ localize 'HOMM.spellbook' }}</a>
+            <a class="item" data-tab="biography">{{ localize 'HOMM.biography' }}</a>
+        </nav>
+    </div>
+
+    <section class="sheet-body">
+
+        {{!-- Equipment --}}
+        <div class="tab equipment" data-group="primary" data-tab="equipment">
+            <div class="grid grid-2col equipment-grid">
+                <div class="resource">
+                    <label class="resource-label">{{ localize 'HOMM.slot.headwear' }}</label>
+                    <input name="system.equipment.headwear" type="text" value="{{ system.equipment.headwear }}" data-dtype="String"/>
+                </div>
+                <div class="resource">
+                    <label class="resource-label">{{ localize 'HOMM.slot.necklace' }}</label>
+                    <input name="system.equipment.necklace" type="text" value="{{ system.equipment.necklace }}" data-dtype="String"/>
+                </div>
+                <div class="resource">
+                    <label class="resource-label">{{ localize 'HOMM.slot.torso' }}</label>
+                    <input name="system.equipment.torso" type="text" value="{{ system.equipment.torso }}" data-dtype="String"/>
+                </div>
+                <div class="resource">
+                    <label class="resource-label">{{ localize 'HOMM.slot.palms' }}</label>
+                    <input name="system.equipment.palms" type="text" value="{{ system.equipment.palms }}" data-dtype="String"/>
+                </div>
+                <div class="resource">
+                    <label class="resource-label">{{ localize 'HOMM.slot.ringLeft' }}</label>
+                    <input name="system.equipment.ringLeft" type="text" value="{{ system.equipment.ringLeft }}" data-dtype="String"/>
+                </div>
+                <div class="resource">
+                    <label class="resource-label">{{ localize 'HOMM.slot.ringRight' }}</label>
+                    <input name="system.equipment.ringRight" type="text" value="{{ system.equipment.ringRight }}" data-dtype="String"/>
+                </div>
+                <div class="resource">
+                    <label class="resource-label">{{ localize 'HOMM.slot.cape' }}</label>
+                    <input name="system.equipment.cape" type="text" value="{{ system.equipment.cape }}" data-dtype="String"/>
+                </div>
+                <div class="resource">
+                    <label class="resource-label">{{ localize 'HOMM.slot.footwear' }}</label>
+                    <input name="system.equipment.footwear" type="text" value="{{ system.equipment.footwear }}" data-dtype="String"/>
+                </div>
+            </div>
+            <div class="resource">
+                <label class="resource-label">{{ localize 'HOMM.slot.miscellaneous' }}</label>
+                <input name="system.equipment.miscellaneous" type="text" value="{{ system.equipment.miscellaneous }}" data-dtype="String"/>
+            </div>
+            <ol class="items-list">
+                <li class="item flexrow item-header">
+                    <div class="item-name">{{ localize 'HOMM.gear' }}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="{{ localize 'HOMM.createItem' }}" data-type="gear">
+                            <i class="fas fa-plus"></i> {{ localize 'HOMM.addItem' }}
+                        </a>
+                    </div>
+                </li>
+                {{#each actor.items as |item id|}}
+                {{#if (eq item.type "gear")}}
+                <li class="item flexrow" data-item-id="{{ item.id }}">
+                    <span class="item-name item-edit">{{ item.name }}</span>
+                    <span class="item-info">{{ localize 'HOMM.slotLabel' slot=(localize (concat 'HOMM.slot.' item.system.slot)) }}</span>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="{{ localize 'HOMM.editItem' }}"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="{{ localize 'HOMM.deleteItem' }}"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ol>
+        </div>
+
+        {{!-- Resources --}}
+        <div class="tab resources" data-group="primary" data-tab="resources">
+            <prose-mirror name="system.resources" value="{{ system.resources }}" toggled
+                          {{#unless editable}}disabled{{/unless}}>{{{ enrichedResources }}}
+            </prose-mirror>
+        </div>
+
+        {{!-- Spellbook --}}
+        <div class="tab spellbook" data-group="primary" data-tab="spellbook">
+            <table class="spellbook-table">
+                <thead>
+                <tr>
+                    <th>{{ localize 'HOMM.spell.name' }}</th>
+                    <th>{{ localize 'HOMM.spell.school' }}</th>
+                    <th>{{ localize 'HOMM.spell.cost' }}</th>
+                    <th>{{ localize 'HOMM.spell.range' }}</th>
+                    <th class="item-controls">
+                        <a class="item-control item-create" title="{{ localize 'HOMM.createItem' }}" data-type="spell">
+                            <i class="fas fa-plus"></i> {{ localize 'HOMM.addItem' }}
+                        </a>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each actor.items as |item id|}}
+                {{#if (eq item.type "spell")}}
+                <tr class="item" data-item-id="{{ item.id }}">
+                    <td class="item-name item-edit">{{ item.name }}</td>
+                    <td>{{ item.system.school }}</td>
+                    <td>{{ item.system.cost }}</td>
+                    <td>{{ item.system.range }}</td>
+                    <td class="item-controls">
+                        <a class="item-control item-edit" title="{{ localize 'HOMM.editItem' }}"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="{{ localize 'HOMM.deleteItem' }}"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {{/if}}
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        {{!-- Biography --}}
+        <div class="tab biography" data-group="primary" data-tab="biography">
+            <prose-mirror name="system.biography" value="{{ system.biography }}" toggled
+                          {{#unless editable}}disabled{{/unless}}>{{{ enrichedBiography }}}
+            </prose-mirror>
+        </div>
+    </section>
+</form>

@@ -1,0 +1,58 @@
+<form class="{{ cssClass }}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{ item.img }}" data-edit="img" title="{{ item.name }}"/>
+        <div class="header-fields">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{ item.name }}" placeholder="{{ localize 'HOMM.gear' }}"/>
+            </h1>
+            <div class="grid grid-3col">
+                <div class="resource flex-group-center">
+                    <label class="resource-label">{{ localize 'HOMM.equipped' }}</label>
+                    <input type="checkbox" {{ checked system.equipped }} name="system.equipped" data-dtype="Boolean"/>
+                </div>
+                <div class="resource flex-group-center">
+                    <label class="resource-label">{{ localize 'HOMM.quantity' }}</label>
+                    <input type="number" name="system.quantity" value="{{ system.quantity }}" data-dtype="Number"/>
+                </div>
+                <div class="resource flex-group-center">
+                    <label class="resource-label">{{ localize 'HOMM.slot.label' }}</label>
+                    <select name="system.slot" data-dtype="String">
+                        {{#select system.slot}}
+                        <option value="headwear">{{ localize 'HOMM.slot.headwear' }}</option>
+                        <option value="necklace">{{ localize 'HOMM.slot.necklace' }}</option>
+                        <option value="torso">{{ localize 'HOMM.slot.torso' }}</option>
+                        <option value="palms">{{ localize 'HOMM.slot.palms' }}</option>
+                        <option value="ringLeft">{{ localize 'HOMM.slot.ringLeft' }}</option>
+                        <option value="ringRight">{{ localize 'HOMM.slot.ringRight' }}</option>
+                        <option value="cape">{{ localize 'HOMM.slot.cape' }}</option>
+                        <option value="footwear">{{ localize 'HOMM.slot.footwear' }}</option>
+                        <option value="miscellaneous">{{ localize 'HOMM.slot.miscellaneous' }}</option>
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+            <div class="grid grid-4col">
+                <div class="resource flex-group-center">
+                    <label class="resource-label">{{ localize 'HOMM.combatValue' }}</label>
+                    <input type="number" name="system.combatValueBonus" value="{{ system.combatValueBonus }}" data-dtype="Number"/>
+                </div>
+                <div class="resource flex-group-center">
+                    <label class="resource-label">{{ localize 'HOMM.attack' }}</label>
+                    <input type="number" name="system.attackBonus" value="{{ system.attackBonus }}" data-dtype="Number"/>
+                </div>
+                <div class="resource flex-group-center">
+                    <label class="resource-label">{{ localize 'HOMM.defense' }}</label>
+                    <input type="number" name="system.defenseBonus" value="{{ system.defenseBonus }}" data-dtype="Number"/>
+                </div>
+                <div class="resource flex-group-center">
+                    <label class="resource-label">{{ localize 'HOMM.range' }}</label>
+                    <input type="number" name="system.rangeBonus" value="{{ system.rangeBonus }}" data-dtype="Number"/>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <prose-mirror name="system.description" value="{{ system.description }}" toggled
+                  {{#unless editable}}disabled{{/unless}}>{{{ enrichedDescription }}}
+    </prose-mirror>
+</form>

@@ -1,0 +1,110 @@
+{
+  "HOMM": {
+    "name": "Name",
+    "characterClass": "Class",
+    "origin": "Origin",
+    "lineage": "Lineage",
+    "alignment": "Alignment",
+    "motivation": "Motivation",
+    "level": "Level",
+    "attributes": "Attributes",
+    "traits": "Traits",
+    "skills": "Skills",
+    "talents": "Talents",
+    "resources": "Resources",
+    "equipment": "Equipment",
+    "spellbook": "Spellbook",
+    "spellPoints": "Spell Points",
+    "biography": "Biography",
+    "combatValue": "Combat Value",
+    "vitality": "Vitality",
+    "range": "Range",
+    "exp": "EXP",
+    "injuries": "Injuries",
+    "attackSt": "Attack ST",
+    "gear": "Gear",
+    "defenseSt": "Defense ST",
+    "casualties": "Casualties",
+    "qualities": "Qualities",
+    "specialAbilities": "Special Abilities",
+    "unitType": "Type",
+    "moniker": "Moniker",
+    "unitSize": "Unit Size",
+    "armyPoints": "Army Points",
+    "attack": "Attack",
+    "defense": "Defense",
+    "equipped": "Equipped",
+    "quantity": "Quantity",
+    "createItem": "Create item",
+    "addItem": "Add item",
+    "editItem": "Edit Item",
+    "deleteItem": "Delete Item",
+    "newItem": "New Item",
+    "slotLabel": "Slot: {slot}",
+    "rollAttr": "Rolling {key} attribute",
+    "rollTrait": "Rolling {key} trait",
+    "attr": {
+      "attack": "Attack",
+      "defense": "Defense",
+      "magic": "Magic",
+      "knowledge": "Knowledge"
+    },
+    "trait": {
+      "daring": "Daring",
+      "cunning": "Cunning",
+      "tenacity": "Tenacity",
+      "adaptability": "Adaptability",
+      "zest": "Zest",
+      "focus": "Focus",
+      "mind": "Mind",
+      "insight": "Insight"
+    },
+    "skill": {
+      "combat": "Combat",
+      "scouting": "Scouting",
+      "diplomacy": "Diplomacy",
+      "management": "Management",
+      "tactics": "Tactics",
+      "command": "Command",
+      "sorcery": "Sorcery",
+      "scholarship": "Scholarship",
+      "mysticism": "Mysticism",
+      "necromancy": "Necromancy"
+    },
+    "slot": {
+      "label": "Slot",
+      "headwear": "Headwear",
+      "necklace": "Necklace",
+      "torso": "Torso",
+      "palms": "Palms",
+      "ringLeft": "Ring (left)",
+      "ringRight": "Ring (right)",
+      "cape": "Cape",
+      "footwear": "Footwear",
+      "miscellaneous": "Miscellaneous"
+    },
+    "spell": {
+      "name": "Spell Name",
+      "school": "School",
+      "level": "Level",
+      "cost": "Cost",
+      "range": "Range",
+      "effects": "Effects"
+    },
+    "sheets": {
+      "actor": "HoMM3 Actor Sheet",
+      "item": "HoMM3 Item Sheet"
+    }
+  },
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "companion": "Companion",
+      "unit": "Unit"
+    },
+    "Item": {
+      "gear": "Gear",
+      "spell": "Spell"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "title": "HoMM3 RPG",
+  "description": "Unofficial HoMM3-flavoured tabletop RPG system for FoundryVTT, with character, companion and unit sheets.",
+  "authors": [
+    {
+      "name": "max",
+      "flags": {}
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "license": "LICENSE.txt",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "esmodules": [
+    "module/homm3rpg.js"
+  ],
+  "styles": [
+    "css/homm3rpg.css"
+  ],
+  "relationships": [],
+  "socket": false,
+  "id": "homm3rpg"
+}

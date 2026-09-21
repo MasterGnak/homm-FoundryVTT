@@ -1,0 +1,133 @@
+{
+  "Actor": {
+    "types": [
+      "character",
+      "companion",
+      "unit"
+    ],
+    "templates": {
+      "common": {
+        "alignment": "",
+        "qualities": "",
+        "specialAbilities": "",
+        "combatValue": 0,
+        "gear": "",
+        "vitality": {
+          "value": 1,
+          "max": 1
+        },
+        "casualties": 0
+      }
+    },
+    "character": {
+      "templates": [
+        "common"
+      ],
+      "origin": "",
+      "lineage": "",
+      "characterClass": "",
+      "motivation": "",
+      "level": 1,
+      "attributes": {
+        "attack": { "value": 0 },
+        "defense": { "value": 0 },
+        "magic": { "value": 0 },
+        "knowledge": { "value": 0 }
+      },
+      "traits": {
+        "daring": { "value": 0 },
+        "cunning": { "value": 0 },
+        "tenacity": { "value": 0 },
+        "adaptability": { "value": 0 },
+        "zest": { "value": 0 },
+        "focus": { "value": 0 },
+        "mind": { "value": 0 },
+        "insight": { "value": 0 }
+      },
+      "skills": {
+        "combat": 0,
+        "scouting": 0,
+        "diplomacy": 0,
+        "management": 0,
+        "tactics": 0,
+        "command": 0,
+        "sorcery": 0,
+        "scholarship": 0,
+        "mysticism": 0,
+        "necromancy": 0
+      },
+      "injuries": 0,
+      "range": 0,
+      "exp": 0,
+      "talents": "",
+      "resources": "",
+      "biography": "",
+      "spellPoints": 0,
+      "equipment": {
+        "headwear": "",
+        "necklace": "",
+        "torso": "",
+        "palms": "",
+        "ringLeft": "",
+        "ringRight": "",
+        "cape": "",
+        "footwear": "",
+        "miscellaneous": ""
+      }
+    },
+    "companion": {
+      "templates": [
+        "common"
+      ],
+      "range": 0,
+      "attack": 0,
+      "attackSt": 0,
+      "defense": 0,
+      "defenseSt": 0
+    },
+    "unit": {
+      "templates": [
+        "common"
+      ],
+      "unitSize": 1,
+      "attack": 0,
+      "range": 0,
+      "defense": 0,
+      "armyPoints": 0,
+      "moniker": ""
+    }
+  },
+  "Item": {
+    "types": [
+      "gear",
+      "spell"
+    ],
+    "templates": {
+      "itemDescription": {
+        "description": ""
+      }
+    },
+    "gear": {
+      "templates": [
+        "itemDescription"
+      ],
+      "slot": "miscellaneous",
+      "quantity": 1,
+      "equipped": false,
+      "combatValueBonus": 0,
+      "attackBonus": 0,
+      "defenseBonus": 0,
+      "rangeBonus": 0
+    },
+    "spell": {
+      "templates": [
+        "itemDescription"
+      ],
+      "school": "",
+      "level": 1,
+      "cost": 0,
+      "range": "",
+      "effects": ""
+    }
+  }
+}
