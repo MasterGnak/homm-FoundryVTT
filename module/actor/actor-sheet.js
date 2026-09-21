@@ -28,6 +28,7 @@ export class HoMMActorSheet extends ActorSheet {
 
     async getData() {
         const context = await super.getData();
+        context.system = context.actor.system;
         context.enrichedBiography = await TextEditorClass.enrichHTML(context.system.biography ?? "");
         context.enrichedTalents = await TextEditorClass.enrichHTML(context.system.talents ?? "");
         context.enrichedResources = await TextEditorClass.enrichHTML(context.system.resources ?? "");
